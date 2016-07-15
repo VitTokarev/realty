@@ -29,10 +29,10 @@ class ControllerRealty
 		
 		$types = RealtyType::type_id_array($types);
 		
-		//echo '<br><br>';// ERR
-		//echo 'controller_realty.php: function all_lines_controller() RealtyType::type_id_array($types) =';//
-		//print_r($types);//
-		//echo '<br><br>';
+		echo '<br><br>';// ERR
+		echo 'controller_realty.php: function all_lines_controller() RealtyType::type_id_array($types) =';//
+		print_r($types);//
+		echo '<br><br>';
 		
 		
 		return render("index_content",['realty' => $realty,
