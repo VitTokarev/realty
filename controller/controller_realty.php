@@ -15,17 +15,17 @@ class ControllerRealty
 	{
 		$realty = Realty::all_lines(); //function_realty.php
 		
-		//echo '<br><br>';// ERR
-		//echo 'controller_realty.php: function all_lines_controller() Realty::all_lines() =';//
-		//print_r($realty);//
-		//echo '<br><br>';
+		echo '<br><br>';// ERR
+		echo 'controller_realty.php: function all_lines_controller() Realty::all_lines() =';//
+		print_r($realty);//
+		echo '<br><br>';
 		
 		$types = RealtyType::all_lines();
 		
-		//echo '<br><br>';// ERR
-		//echo 'controller_realty.php: function all_lines_controller() RealtyType::all_lines() =';//
-		//print_r($types);//
-		//echo '<br><br>';
+		echo '<br><br>';// ERR
+		echo 'controller_realty.php: function all_lines_controller() RealtyType::all_lines() =';//
+		print_r($types);//
+		echo '<br><br>';
 		
 		$types = RealtyType::type_id_array($types);
 		
