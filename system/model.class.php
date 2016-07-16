@@ -104,9 +104,9 @@ class Model
 		
 		while ($row = mysqli_fetch_assoc($res))
 		{
-			//echo 'model.class.php: function all_lines(): $row = ';//OK
-			//print_r($row);//
-			//echo '<br><br>';//
+			echo 'model.class.php: function all_lines(): $row = ';//OK
+			print_r($row);//
+			echo '<br><br>';//
 			
 			$class_name = static::className(); //Realty 
 			 
@@ -117,7 +117,7 @@ class Model
 			//echo '<br><br>';//
 			
             /* @var $one Model */
-            if ($one->load($row))
+            if ($one->$row) //if ($one->load($row))
             {
                 $all[] = $one;
 				
