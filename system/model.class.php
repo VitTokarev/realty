@@ -65,6 +65,69 @@ class Model
         $this->is_changed = false;
 	}
 	
+	    public function __get($field)
+    {
+        if ((!in_array($field,static::$fields))&&(!in_array($field,$this->get_relation_fields())))
+        {
+            return self::FIELD_NOT_EXIST;
+        }
+        else
+        {
+            if (isset($this->data[$field]))
+            {
+                return $this->data[$field];
+            }
+            else
+            {
+                if (isset($this->relations[$field]))
+                {
+                    return $this->relations[$field];
+                }
+                else
+                {
+                    return NULL;
+                }
+
+            }
+        }
+    }
+
+    public function __set($field, $value)
+    {
+        if ((!in_array($field,static::$fields))&&(!in_array($field,$this->get_relation_fields())))
+        {
+            return self::FIELD_NOT_EXIST;
+        }
+        else
+        {
+            if ($field === 'id')
+            {
+                return self::ID_ACCESS_DENIED;
+            }
+            else
+            {
+                if (in_array($field,static::$fields))
+                {
+
+                    $this->data[$field] = $value;
+
+                    if ($this->is_loaded_from_db)
+                    {
+                        $this->is_changed = true;
+                    }
+
+                    return $this->data[$field];
+
+
+                }
+                else
+                {
+                    return self::FIELD_NOT_EXIST;
+                }
+            }
+        }
+    }
+	
 	public static function tableName()
     {
         return NULL;
