@@ -24,7 +24,11 @@ echo "<br>";
 
 print_r($array);
 
-$row = $array;
+$row = 
+	['type' => 'room',
+	 'type_id' => 1
+	
+	];
 echo "<br>";
 
 

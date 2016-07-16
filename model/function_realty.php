@@ -40,6 +40,9 @@ class Realty extends Model
 		
 		foreach (array_keys($realty) as $k)
         {
+			//echo '<br><br>function_realty.php array_keys($realty) =';
+			//print_r(array_keys($realty));//
+			//echo '<br><br>';//
             $realty[$k]->load_relations(
                 [
                     'type' => $types[$realty[$k]->type_id]
