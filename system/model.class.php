@@ -90,31 +90,31 @@ class Model
 		
 		$sql = "SELECT * FROM `".static::tableName()."` WHERE 1"; //OK
 		
-		echo '<br><br>';
-		echo 'model.class.php: static::tableName() = '.static::tableName();//
-		echo '<br><br>';
+		//echo '<br><br>';
+		//echo 'model.class.php: static::tableName() = '.static::tableName();//
+		//echo '<br><br>';
 		
 		$res = mysqli_query(self::get_db(), $sql) or die(mysqli_error(self::get_db()));
 		$realty = array();
 		
-		echo '<br><br>';
-		echo 'model.class.php: static::className() = '.static::className();
-		echo '<br><br>';
+		//echo '<br><br>';
+		//echo 'model.class.php: static::className() = '.static::className();
+		//echo '<br><br>';
 			 
 		
 		while ($row = mysqli_fetch_assoc($res))
 		{
-			echo 'model.class.php: function all_lines(): $row = ';//OK
-			print_r($row);//
-			echo '<br><br>';//
+			//echo 'model.class.php: function all_lines(): $row = ';//OK
+			//print_r($row);//
+			//echo '<br><br>';//
 			
 			$class_name = static::className(); //Realty 
 			 
             $one = new $class_name();
 			
-			echo 'model.class.php: function all_lines(): $one = ';//OK
-			echo $class_name;//
-			echo '<br><br>';//
+			//echo 'model.class.php: function all_lines(): $one = ';//OK
+			//echo $class_name;//
+			//echo '<br><br>';//
 			
             /* @var $one Model */
             if ($one->load($row))
