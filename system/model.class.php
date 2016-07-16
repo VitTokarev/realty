@@ -148,6 +148,12 @@ class Model
         return self::$db;
     }
 	
+	protected function get_relation_fields()
+    {
+        return array_keys($this->relations);
+    }
+
+	
 	public static function all_lines()
 	{	
 		
