@@ -162,18 +162,18 @@ class Model
 		
                 $this->data[$k] = $v;
 				
-				//echo '<br><br>model.class.php class Model, public function load($data = array()), $k = ';
-				//print_r($k);
-				//echo '<br><br>';
+				echo '<br><br>model.class.php class Model, public function load($data = array()), $k = ';
+				print_r($k);
+				echo '<br><br>';
 				
-				//echo '<br><br>model.class.php class Model, public function load($data = array()), $v = ';
-				//print_r($v);
-				//echo '<br><br>';
+				echo '<br><br>model.class.php class Model, public function load($data = array()), $v = ';
+				print_r($v);
+				echo '<br><br>';
 				
 				
-				//echo '<br><br>model.class.php class Model, public function load($data = array()), data['.$k.'] = ';
-				//print_r($this->data);
-				//echo '<br><br>';
+				echo '<br><br>model.class.php class Model, public function load($data = array()), data['.$k.'] = ';
+				print_r($this->data);
+				echo '<br><br>';
             }
         }
         return true;
