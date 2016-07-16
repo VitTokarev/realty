@@ -122,7 +122,7 @@ class Model
                 $all[] = $one;
 				
 				echo 'model.class.php: function all_lines(): $all[] = ';//ERR
-				print_r($one);//
+				print_r($all);//
 				echo '<br><br>';//
             }
         }
@@ -156,24 +156,24 @@ class Model
             else
             {
 		
-				echo '<br><br>model.class.php class Model, public function load($data = array()), static::$fields = ';
-				print_r(static::$fields);
-				echo '<br><br>';
+				//echo '<br><br>model.class.php class Model, public function load($data = array()), static::$fields = ';
+				//print_r(static::$fields);
+				//echo '<br><br>';
 		
                 $this->data[$k] = $v;
 				
-				echo '<br><br>model.class.php class Model, public function load($data = array()), $k = ';
-				print_r($k);
-				echo '<br><br>';
+				//echo '<br><br>model.class.php class Model, public function load($data = array()), $k = ';
+				//print_r($k);
+				//echo '<br><br>';
 				
-				echo '<br><br>model.class.php class Model, public function load($data = array()), $v = ';
-				print_r($v);
-				echo '<br><br>';
+				//echo '<br><br>model.class.php class Model, public function load($data = array()), $v = ';
+				//print_r($v);
+				//echo '<br><br>';
 				
 				
-				echo '<br><br>model.class.php class Model, public function load($data = array()), data['.$k.'] = ';
-				print_r($this->data);
-				echo '<br><br>';
+				//echo '<br><br>model.class.php class Model, public function load($data = array()), data['.$k.'] = ';
+				//print_r($this->data);
+				//echo '<br><br>';
             }
         }
         return true;
