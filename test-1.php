@@ -1,19 +1,26 @@
 <?
+require_once "system/model.class.php";
+require_once "model/function_realty_type.php";
 
-
-
-	
-		$array = array('id' => array(1, 2, 3),
-					   'type' => array('комната', 'квартира','сарай'),
-					   'title' => array('2-е комнаты', '2-х комнатная', '3-х этажный' ),
-					   'price' => array('100', '200', '300')
-		);	   
-	
-	foreach($array as $k => $v)
+class Test extends Model
+{
+	public static function all_lines()
 	{
-		$arr[] = $v[0];
+		$realty = parent::all_lines();
+		
+		echo '<br><br>function_realty.php parent::all_lines() =';//
+		var_dump($realty);//
+		echo '<br><br>';//
+		
+		$types = RealtyType::all_lines();
+		
+		echo '<br><br>function_realty.php RealtyType::all_lines() =';//
+		var_dump($types);//
+		echo '<br><br>';//
 	}
 	
-	print_r($arr);
+	
+}
 
-
+$r = new Test();
+$r -> all_lines();

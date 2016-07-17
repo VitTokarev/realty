@@ -44,15 +44,15 @@ else
 
 $controller_class_name = name2controller_class_name($controller); //ControllerRealty
 
-echo '<br><br>index.php: $controller_class_name = ';
-echo $controller_class_name;
-echo '<br><br>';
+//echo '<br><br>index.php: $controller_class_name = ';
+//echo $controller_class_name;
+//echo '<br><br>';
 
 $controller_function_name = $controller_action."_controller"; //all_lines_controller
 
-echo '<br><br>index.php: $controller_function_name = ';
-echo $controller_function_name;
-echo '<br><br>';
+//echo '<br><br>index.php: $controller_function_name = ';
+//echo $controller_function_name;
+//echo '<br><br>';
 
 $controller_object = new $controller_class_name();  //New ControllerRealty()
 

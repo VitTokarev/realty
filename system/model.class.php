@@ -256,9 +256,9 @@ class Model
 		
 		while ($row = mysqli_fetch_assoc($res))
 		{
-			echo 'model.class.php: function all_lines(): $row = ';//OK
-			print_r($row);//
-			echo '<br><br>';//
+			//echo 'model.class.php: function all_lines(): $row = ';//OK
+			//print_r($row);//
+			//echo '<br><br>';//
 			
 			$class_name = static::className(); //Realty 
 			 
@@ -273,9 +273,9 @@ class Model
             {
                 $all[] = $one;
 				
-				echo 'model.class.php: function all_lines(): $one = ';//ERR
-				print_r($one);//
-				echo '<br><br>';//
+				//echo 'model.class.php: function all_lines(): $one = ';//ERR
+				//var_dump($one);//
+				//echo '<br><br>';//
             }
         }
 		//echo "static::tableName() =".static::tableName()."<br>";//
@@ -314,18 +314,18 @@ class Model
 		
                 $this->data[$k] = $v;
 				
-				echo '<br><br>model.class.php class Model, public function load($data = array()), $k = ';
-				print_r($k);
-				echo '<br><br>';
-				
-				echo '<br><br>model.class.php class Model, public function load($data = array()), $v = ';
-				print_r($v);
-				echo '<br><br>';
-				
-				
-				echo '<br><br>model.class.php class Model, public function load($data = array()), data['.$k.'] = ';
-				print_r($this->data);
-				echo '<br><br>';
+				//echo '<br><br>model.class.php class Model, public function load($data = array()), $k = ';
+				//print_r($k);
+				//echo '<br><br>';
+				//
+				//echo '<br><br>model.class.php class Model, public function load($data = array()), $v = ';
+				//print_r($v);
+				//echo '<br><br>';
+				//
+				//
+				//echo '<br><br>model.class.php class Model, public function load($data = array()), data['.$k.'] = ';
+				//print_r($this->data);
+				//echo '<br><br>';
             }
         }
         return true;
