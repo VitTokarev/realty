@@ -18,7 +18,7 @@ foreach($array as $row)
         {
 			print_r($row);
 			echo '<br>';
-			print_r($row->id);
+			print_r($row);
 			echo '<br>';
             $arr[$row->id] = $row;
         }
