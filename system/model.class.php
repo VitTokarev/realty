@@ -311,7 +311,11 @@ class Model
 	
 	 
 
-	
+	public function __destruct()
+    {
+        //@mysqli_close(self::get_db());
+    }
+
 	
 	
 	
