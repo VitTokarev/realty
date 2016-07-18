@@ -26,7 +26,7 @@
       <file leaf-file-name="model.class.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/system/model.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.200342" vertical-offset="7125" max-vertical-offset="9784">
+            <state vertical-scroll-proportion="-12.200342" vertical-offset="7125" max-vertical-offset="8859">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -46,6 +46,7 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/teamplates/main_content.php" />
         <option value="$PROJECT_DIR$/teamplates/edite_object_content.php" />
+        <option value="$PROJECT_DIR$/system/model.class.php" />
       </list>
     </option>
   </component>
@@ -190,7 +191,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1384" height="752" extended-state="7" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
