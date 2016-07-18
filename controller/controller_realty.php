@@ -36,7 +36,7 @@ class ControllerRealty
 		
 		
 		return render("index_content",['realty' => $realty,
-									   'realty_types' => $types
+									   'realty_type' => $types
 		]);
 	}
 	
