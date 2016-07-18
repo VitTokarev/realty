@@ -240,48 +240,23 @@ class Model
 	public static function all_lines()
 	{	
 		
-		$sql = "SELECT * FROM `".static::tableName()."` WHERE 1"; //OK
-		
-		//echo '<br><br>';
-		//echo 'model.class.php: static::tableName() = '.static::tableName();//
-		//echo '<br><br>';
+		$sql = "SELECT * FROM `".static::tableName()."` WHERE 1"; 
 		
 		$res = mysqli_query(self::get_db(), $sql) or die(mysqli_error(self::get_db()));
-		$realty = array();
-		
-		//echo '<br><br>';
-		//echo 'model.class.php: static::className() = '.static::className();
-		//echo '<br><br>';
-			 
+		$all = array();
 		
 		while ($row = mysqli_fetch_assoc($res))
 		{
-			//echo 'model.class.php: function all_lines(): $row = ';//OK
-			//print_r($row);//
-			//echo '<br><br>';//
-			
-			$class_name = static::className(); //Realty 
-			 
+			$class_name = static::className();
             $one = new $class_name();
-			
-			//echo 'model.class.php: function all_lines(): $one = ';//OK
-			//echo $class_name;//
-			//echo '<br><br>';//
-			
+
             /* @var $one Model */
             if ($one->load($row))
             {
                 $all[] = $one;
-				
-				//echo 'model.class.php: function all_lines(): $one = ';//ERR
-				//var_dump($one);//
-				//echo '<br><br>';//
             }
         }
-		//echo "static::tableName() =".static::tableName()."<br>";//
-		//echo "static::className() =".static::className()."<br>";//
-		//echo 'model.class.php: function all_lines(): $all = ';//
-		//print_r($all)."<br>";//
+
         return $all;
 	}
 	
@@ -307,25 +282,9 @@ class Model
             }
             else
             {
-		
-				//echo '<br><br>model.class.php class Model, public function load($data = array()), static::$fields = ';
-				//print_r(static::$fields);
-				//echo '<br><br>';
-		
+
                 $this->data[$k] = $v;
-				
-				//echo '<br><br>model.class.php class Model, public function load($data = array()), $k = ';
-				//print_r($k);
-				//echo '<br><br>';
-				//
-				//echo '<br><br>model.class.php class Model, public function load($data = array()), $v = ';
-				//print_r($v);
-				//echo '<br><br>';
-				//
-				//
-				//echo '<br><br>model.class.php class Model, public function load($data = array()), data['.$k.'] = ';
-				//print_r($this->data);
-				//echo '<br><br>';
+
             }
         }
         return true;

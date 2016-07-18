@@ -31,9 +31,9 @@ class Realty extends Model
 	{	
 		$realty = parent::all_lines(); //model.class.php
 		
-		//echo '<br><br>function_realty.php parent::all_lines() =';//ERR
-		//print_r($realty);//
-		//echo '<br><br>';//
+		echo '<br><br>function_realty.php parent::all_lines() =';//ERR
+		var_dump($realty);//
+		echo '<br><br>';//
 		
 		$types = RealtyType::all_lines(); //function_realty_type.php
 		$types = ArrayHelper::index($types,'type_id');
