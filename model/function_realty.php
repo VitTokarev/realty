@@ -18,40 +18,40 @@ class Realty extends Model
 	
 	
 	
-	function __construct($id = NULL)
+	 public function one($id)
     {
-        if ($id !== NULL)
-        {
-            $this->id = $id;
-            $this->init();
-        }
+        $result = parent::one($id);
+
+        $this->load([],true); // загрузка только связей - уместно выделить это в отдельный метод
+        return $result;
     }
+
     
 	 public static function all_lines()
 	{	
-		$realty = parent::all_lines(); //model.class.php
+		$result = parent::all_lines(); //model.class.php
 		
 		echo '<br><br>function_realty.php parent::all_lines() =';//ERR
-		var_dump($realty);//
+		var_dump($result);//
 		echo '<br><br>';//
 		
 		$types = RealtyType::all_lines(); //function_realty_type.php
-		$types = ArrayHelper::index($types,'type_id');
+		$types = ArrayHelper::index($types,'id');
 		
-		foreach (array_keys($realty) as $k)
+		foreach (array_keys($result) as $k)
         {
 			//echo '<br><br>function_realty.php array_keys($realty) =';
 			//print_r(array_keys($realty));//
 			//echo '<br><br>';//
-            $realty[$k]->load_relations(
+            $result[$k]->load_relations(
                 [
-                    'type' => $types[$realty[$k]->type_id]
+                    'type' => $types[$result[$k]->type_id]
                     
                 ]
             );
         }
 		
-		return $realty;
+		return $result;
 	}
 	
 
