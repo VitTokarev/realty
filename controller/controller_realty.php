@@ -67,7 +67,7 @@ class ControllerRealty
 		}		
 		
 		$id = $_GET['id'];
-		$realty = Realty::one_line($id);
+		$realty = new Realty($id);		
 		
 		return render("one_object_content",['realty' => $realty]);
 	
