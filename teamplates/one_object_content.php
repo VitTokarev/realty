@@ -12,26 +12,26 @@
                             <div class="panel-heading">
                                 Тип объекта недвижимости:
                             </div>
-                            <span class="form-control"><?= $realty['type']?></span>
+                            <span class="form-control"><?= $realty->type->title?></span>
                         </div>
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 Описание объекта недвижимости:
                             </div>
-                            <span class="form-control form-control-my"><?= $realty['title']?></span>
+                            <span class="form-control form-control-my"><?= $realty->title?></span>
                         </div>
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 Адрес объекта недвижимости:
                             </div>
-                            <span class="form-control"><?= $realty['address']?></span>
+                            <span class="form-control"><?= $realty->address?></span>
                         </div>
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 Цена объекта недвижимости:
                             </div>
-                            <span class="form-control"><?= number_format($realty['price'],0,' ',' ')?></span>
+                            <span class="form-control"><?= number_format($realty->price,0,' ',' ')?></span>
                         </div>
                         <form method="POST">
                             <p>

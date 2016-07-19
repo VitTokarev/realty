@@ -67,7 +67,7 @@ class Model
 	
 	    public function __get($field)
     {
-        if ((!in_array($field,static::$fields))&&(!in_array($field,$this->get_relation_fields())))
+        if ((!in_array($field, static::$fields))&&(!in_array($field, $this->get_relation_fields())))
         {
             return self::FIELD_NOT_EXIST;
         }
@@ -259,6 +259,21 @@ class Model
 
         return $all;
 	}
+	
+	public function one($id)
+    {
+        $query = "SELECT * FROM `".static::tableName()."` WHERE `id` = '{$id}'";
+        $result = mysqli_query(self::get_db(),$query);
+
+        if ($row = mysqli_fetch_assoc($result))
+        {
+            return $this->load($row);
+        }
+        else
+        {
+            return false;
+        }
+    }
 	
 	public function load_relations($data = array())
     {

@@ -22,10 +22,10 @@ class ControllerRealty
 		
 		$types = RealtyType::all_lines();
 		
-		echo '<br><br>';// OK
-		echo 'controller_realty.php: function all_lines_controller() RealtyType::all_lines() =';//
-		var_dump($types);//
-		echo '<br><br>';
+		//echo '<br><br>';// OK
+		//echo 'controller_realty.php: function all_lines_controller() RealtyType::all_lines() =';//
+		//var_dump($types);//
+		//echo '<br><br>';
 		
 		$types = RealtyType::type_id_array($types);
 		
@@ -67,7 +67,7 @@ class ControllerRealty
 		}		
 		
 		$id = $_GET['id'];
-		$realty = Realty::one_line($id);
+		$realty = new Realty($id);		
 		
 		return render("one_object_content",['realty' => $realty]);
 	
