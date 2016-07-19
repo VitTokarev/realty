@@ -40,7 +40,7 @@ $line_color[] = 'danger';
 									?>
                                                 <tr class="<?=$line_color[$i]?>">
                                                     <td>
-                                                        <?= $a->type->type?>
+                                                        <?= $a->type->title?>
                                                     </td>
                                                     <td>
                                                         <?= mb_substr($a->title, 0, 70, 'UTF-8')?>
