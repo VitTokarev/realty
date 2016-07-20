@@ -85,21 +85,34 @@ class ControllerRealty
 		
 		if(ISSET($_POST['add_submit']))
 		{	
-			$type = $_POST['type'];
+			$type_id = $_POST['type_id'];
 			$title = $_POST['title'];
 			$address = $_POST['address'];
-			$price = $_POST['price'];	
+			$price = $_POST['price'];
 				
-			Realty::add_line($type, $title, $address, $price);
+			//Realty::add_line($type, $title, $address, $price);
 			
-			header("Location: index.php");	
+			$realty = new Realty();
+                $realty->load([
+                    'type_id' => $type_id,
+					'title' => $title,
+                    'address' => $address,
+                    'price' => $price
+                ]);
+
+                $result = $realty->add();
+
+                if ($realty) {
+                    header("Location: index.php?redirect=one_line&id={$realty->id}");
+                    die();
+                }
 			
-			return;
+			
 		}	
 		
 		
-		$realty_types = RealtyType::all_types();
-		$realty = Realty::all_lines();
+		$realty_types = RealtyType::all_lines();
+		
 		
 		return render("add_content",['realty_types' => $realty_types]);
 	
@@ -119,14 +132,19 @@ class ControllerRealty
 		{	
 			
 			$id = $_GET['id'];	
-			Realty::delete_line($id);
+			//Realty::delete_line($id);
+			$realty = new Realty();
+			$realty -> delete($id);
 			
 			header("Location: index.php");
 			return;
 		}	
 		
 		$id = $_GET['id'];
-		$realty = Realty::one_line($id);
+		//$realty = Realty::one_line($id);
+		$realty = new Realty($id);
+		
+		//return render("one_object_content",['realty' => $realty]);
 		
 		return render("delete_content",['realty' => $realty]);
 	}
