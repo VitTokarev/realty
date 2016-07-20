@@ -49,7 +49,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">Урок №5 MVC и ООП.</a>
+                <a class="navbar-brand" href="index.php">Урок №6 Создание класса модели, драйвер БД.</a>
             </div>
             <!-- /.navbar-header -->
 
