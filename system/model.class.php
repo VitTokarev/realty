@@ -275,6 +275,31 @@ class Model
         }
     }
 	
+	public function add()
+    {
+        if ($this->id !== NULL) return self::OBJECT_ALREADY_EXIST;
+
+        $query = "INSERT INTO `".static::tableName()."` (".static::fields_query().") VALUES (".$this->values_query().")";
+        $result = mysqli_query(self::get_db(),$query);
+
+        if ($result)
+        {
+            $this->data['id'] = mysqli_insert_id(self::get_db());
+            $this->is_changed = false;
+            return true;
+        }
+        else
+        {
+            return self::CREATE_FAILED;
+        }
+    }
+	
+		public function delete($id)
+    {
+        $query = "DELETE * FROM `".static::tableName()."` WHERE `id` = '{$id}'";
+        $result = mysqli_query(self::get_db(),$query);        
+    }
+	
 	public function load_relations($data = array())
     {
         foreach($data as $k => $v)
