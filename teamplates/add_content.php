@@ -13,12 +13,12 @@
                                 Выберите тип объекта недвижимости:
                             </div>
                             <form method="POST">
-                                <select class="form-control" name="type">
+                                <select class="form-control" name="type_id">
                                     <?
-								foreach($realty_types as $key => $massive)
+								foreach($realty_types as $a_type)
 								{ ?>
-                                        <option value="<?=$realty_types[$key]['type_id']?>">
-                                            <?=$realty_types[$key]['type']?>
+                                        <option value="<?=$a_type->id?>">
+                                            <?=$a_type->title?>
                                         </option>
                                         <?
 								}?>
@@ -26,19 +26,19 @@
                         </div>
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Новое описание объекта недвижимости:
+                                Описание объекта недвижимости:
                             </div>
                             <textarea class="form-control" rows="3" type="text" name="title"></textarea>
                         </div>
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Новый адрес объекта недвижимости:
+                                Адрес объекта недвижимости:
                             </div>
                             <input class="form-control" type="text" name="address">
                         </div>
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Новая цена объекта недвижимости:
+                                Цена объекта недвижимости:
                             </div>
                             <input class="form-control" type="text" name="price">
                         </div>
