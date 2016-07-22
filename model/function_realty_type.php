@@ -27,6 +27,38 @@ class RealtyType  extends Model
         return $result;
     }	
 
+	public static function realty_types_for_edit($id)
+	{
+		$realty_types = RealtyType::all_lines();
+		
+		$realty = new Realty();
+		$realty -> one($id);
+		$first_id = $realty->type_id;
+		$realty_types_sort = array();
+		
+		foreach($realty_types as $key => $massiv)
+		{
+				$realty_types_sort[$key]['id'] = $realty_types[$key]->id;
+				$realty_types_sort[$key]['title'] = $realty_types[$key]->title;
+		}
+
+		foreach($realty_types as $key => $massiv)
+		{
+			if($realty_types[$key]->id == $first_id)
+			{	
+				$first_title = $realty_types[$key]->title;
+				$no_first_id = $realty_types[0]->id;
+				$no_first_title = $realty_types[0]->title;
+				$realty_types_sort[0]['id'] = $first_id;
+				$realty_types_sort[0]['title'] = $first_title;
+				$realty_types_sort[$key]['id'] = $no_first_id;
+				$realty_types_sort[$key]['title'] = $no_first_title;
+				
+			}
+		}
+		print_r($realty_types_sort);
+		return $realty_types_sort;
+	}	
 	//Выборка всех типов объектов недвижимости
 	
 	// public static function all_types()
