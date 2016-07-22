@@ -19,7 +19,7 @@
                             <div class="panel-heading">
                                 Описание объекта недвижимости:
 								</div>
-                            <span class="form-control"><?= $realty->title?></span>
+                            <span class="form-control form-control form-control-my"><?= $realty->title?></span>
                         </div>
                         <div class="panel panel-default">
                             <div class="panel-heading">
