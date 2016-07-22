@@ -147,21 +147,30 @@ class ControllerRealty
 		if(ISSET($_POST['edite_submit']))
 		{	
 			$id = $_GET['id'];
-			$type = $_POST['type'];
+			$type_id = $_POST['type_id'];
 			$title = $_POST['title'];
 			$address = $_POST['address'];
-			$price = $_POST['price'];	
+			$price = $_POST['price'];
 			
-			Realty::edite_line($id, $type, $title, $address, $price);	
 			
-			header("Location: index.php");
+			$realty = new Realty($id);
+			$realty -> type_id = $type_id;
+			$realty -> title = $title;;
+			$realty -> address = $address;
+			$realty -> price = $price;
+			$realty -> edit();
+			
+			header("Location: index.php?redirect=one_line&id={$realty->id}");
 			
 			return;
 		}	
 		
 		$id = $_GET['id'];
-		$realty = Realty::one_line($id);
+		$realty = new Realty($id);
 		$realty_types = RealtyType::realty_types_for_edit($id);
+		echo '<br><br>';
+		echo $realty_types[0]['title'];
+		echo '<br><br>';
 		
 		return render("edite_object_content",['realty' => $realty], $realty_types);
 		
