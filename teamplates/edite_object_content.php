@@ -12,12 +12,12 @@
                                 Выберите тип объекта недвижимости:
                             </div>
                             <form method="POST">
-                                <select class="form-control" name="type">
+                                <select class="form-control" name="type_id">
                                     <?
 								foreach($realty_types as $key => $massive)
 								{ ?>
-                                        <option value="<?=$realty_types[$key]['type_id']?>">
-                                            <?=$realty_types[$key]['type']?>
+                                        <option value="<?=$realty_types[$key]['id']?>">
+                                            <?=$realty_types[$key]['title']?>
                                         </option>
                                         <?
 								}?>
@@ -27,19 +27,19 @@
                             <div class="panel-heading">
                                 Новое описание объекта недвижимости:
                             </div>
-                            <textarea class="form-control" rows="3" type="text" name="title"><?= $realty['title']?></textarea>
+                            <textarea class="form-control" rows="3" type="text" name="title"><?= $realty->title?></textarea>
                         </div>
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 Новый адрес объекта недвижимости:
                             </div>
-                            <input class="form-control" type="text" name="address" value="<?= $realty['address']?>">
+                            <input class="form-control" type="text" name="address" value="<?= $realty->address?>">
                         </div>
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 Новая цена объекта недвижимости:
                             </div>
-                            <input class="form-control" type="text" name="price" value="<?= $realty['price']?>">
+                            <input class="form-control" type="text" name="price" value="<?= $realty->price?>">
                         </div>
                         <p>
                             <input class="btn btn-success" type="submit" name="edite_submit" value="Изменить">
