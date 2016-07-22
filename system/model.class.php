@@ -260,9 +260,65 @@ class Model
 	
 		public function delete($id)
     {
-        $query = "DELETE * FROM `".static::tableName()."` WHERE `id` = '{$id}'";
+        $query = "DELETE FROM `".static::tableName()."` WHERE `id` = '{$id}'";
         $result = mysqli_query(self::get_db(),$query);        
     }
+	
+	public function edit()
+    {
+        if ($this->id === NULL) return self::OBJECT_NOT_EXIST;
+        $query = "UPDATE `".static::tableName()."` SET ".$this->update_query()." WHERE `id` = '$this->id'";
+
+        $result = mysqli_query(self::get_db(),$query);
+
+        if ($result)
+        {
+            $this->is_changed = false;
+            return true;
+        }
+        else
+        {
+            return self::UPDATE_FAILED;
+        }
+    }
+	
+	 protected function update_query($updated_fields = array())
+    {
+        $fields = array();
+
+        if ($updated_fields === array())
+        {
+            $fields = static::get_fields();
+        }
+        else
+        {
+            foreach($updated_fields as $uf)
+            {
+                if (in_array($uf,static::get_fields()))
+                {
+                    $fields[] = $uf;
+                }
+            }
+        }
+
+        $result = '';
+        foreach($fields as $f)
+        {
+            if ($result !== '') $result .= ', ';
+
+            if ((isset($this->data[$f]))&&($this->data[$f]!==NULL))
+            {
+                $result .= "`{$f}` = '{$this->data[$f]}'";
+            }
+            else
+            {
+                $result .= "`{$f}` = NULL";
+            }
+
+        }
+        return $result;
+    }
+	
 	
 	public function load_relations($data = array())
     {
@@ -296,7 +352,7 @@ class Model
 	
 	protected static function init_fields()
     {
-        $query = "DESCRIBE `".static::tableName()."`;";
+        $query = "DESCRIBE `".static::tableName()."`";
         $result = mysqli_query(self::get_db(),$query);
         while($row = mysqli_fetch_assoc($result))
         {
