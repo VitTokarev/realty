@@ -194,43 +194,7 @@ class Model
         return $result;
     }
 
-    protected function update_query($updated_fields = array())
-    {
-        $fields = array();
-
-        if ($updated_fields === array())
-        {
-            $fields = static::get_fields();
-        }
-        else
-        {
-            foreach($updated_fields as $uf)
-            {
-                if (in_array($uf,static::get_fields()))
-                {
-                    $fields[] = $uf;
-                }
-            }
-        }
-
-        $result = '';
-        foreach($fields as $f)
-        {
-            if ($result !== '') $result .= ', ';
-
-            if ((isset($this->data[$f]))&&($this->data[$f]!==NULL))
-            {
-                $result .= "`{$f}` = '{$this->data[$f]}'";
-            }
-            else
-            {
-                $result .= "`{$f}` = NULL";
-            }
-
-        }
-        return $result;
-    }
-	
+   
 	protected function get_relation_fields()
     {
         return array_keys($this->relations);
