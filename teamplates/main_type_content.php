@@ -35,15 +35,15 @@ $line_color[] = 'danger';
                                         <tbody>
                                             <?php
 										$i = 0;
-										foreach($realty_types as $key => $massiv)
+										foreach($realty_types as $a)
 										{											
 									?>
                                                 <tr class="<?=$line_color[$i]?>">
                                                     <td>
-                                                        <?= $realty_types[$key]['type']?>
+                                                        <?= $a->title?>
                                                     </td>
-                                                    <td><a href="index.php?redirect=edite_type&type_id=<?=$realty_types[$key]['type_id']?>&controller=controller_realty_type">изменить</a></td>
-                                                    <td><a href="index.php?redirect=delete_type&type_id=<?=$realty_types[$key]['type_id']?>&controller=controller_realty_type">удалить</a></td>
+                                                    <td><a href="index.php?redirect=edite_type&id=<?=$a->id?>&controller=controller_realty_type">изменить</a></td>
+                                                    <td><a href="index.php?redirect=delete_type&id=<?=$a->id?>&controller=controller_realty_type">удалить</a></td>
                                                 </tr>
                                                 <?php
 										$i++;
