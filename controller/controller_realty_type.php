@@ -97,38 +97,36 @@ class ControllerRealtyType
 		
 		if(ISSET($_POST['delete_type']))
 		{	
-			$type_i = $id = $_GET['id'];
+			$id = $_GET['id'];
 			
-			$realty = Realty::all_by_type($type_i);
+			$realty = Realty::all_by_type($id);
 			$types = RealtyType::all_lines();
 			$types = RealtyType::type_id_array($types);
 			
-			if(count($realty))
+			if($realty != NULL)
 			{	
-						
-		
+				$type_not_del = $types[$id]->title;
 				return render("existing_type_not_delete_content",['realty' => $realty,
-									   'realty_type' => $types
-																]);
+									   'realty_type' => $types,
+										'type_not_del' => $type_not_del]);
 				
 			}
 			
+			
 			$realty_type = new RealtyType();
-			$realty_type -> delete($id);
+			$realty_type -> del($id);
 			header("Location: index.php?redirect=all_types&controller=controller_realty_type");
-			return;		
-			
-			
-		}	
+			return;
+		}
 		
 		$id = $_GET['id'];
 		$realty_type = new RealtyType();
 		$realty_type -> one($id);
 		
 		return render("realty_type_delete_content",['realty_type' => $realty_type]);
-	}
+		}
 
-}
+	}
 
 
 
