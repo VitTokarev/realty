@@ -29,20 +29,12 @@ class Realty extends Model
     
 	 public static function all_lines()
 	{	
-		$result = parent::all_lines(); //model.class.php
-		
-		//echo '<br><br>function_realty.php parent::all_lines() =';//ERR
-		//var_dump($result);//
-		//echo '<br><br>';//
-		
-		$types = RealtyType::all_lines(); //function_realty_type.php
+		$result = parent::all_lines(); 
+		$types = RealtyType::all_lines(); 
 		$types = ArrayHelper::index($types,'id');
 		
 		foreach (array_keys($result) as $k)
         {
-			//echo '<br><br>function_realty.php array_keys($realty) =';
-			//print_r(array_keys($realty));//
-			//echo '<br><br>';//
             $result[$k]->load_relations(
                 [
                     'type' => $types[$result[$k]->type_id]
@@ -54,19 +46,31 @@ class Realty extends Model
 		return $result;
 	}
 	
-
+	public static function all_by_type($id)
+	{	
+		$result = parent::all_by_type($id); 
+		$types = RealtyType::all_lines(); 
+		$types = ArrayHelper::index($types,'id');
+		
+		foreach (array_keys($result) as $k)
+        {
+            $result[$k]->load_relations(
+                [
+                    'type' => $types[$result[$k]->type_id]
+                    
+                ]
+            );
+        }
+		
+		return $result;
+	}
+	
 	public function load($data = array(),$with_relations = false)
 		{
 			$result = parent::load($data);
 	
 			if ($with_relations)
 			{
-		
-				//echo '<br><br>';
-				//echo 'function_realty.php: public function load($data = array(),$with_relations = false) = ';
-				//echo $with_relations;
-				//echo '<br><br>';
-		
 				if ($this->type_id !== NULL) {
 					$this->relations['type'] = new RealtyType($this->type_id);
 				}				
