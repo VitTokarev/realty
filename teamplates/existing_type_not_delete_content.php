@@ -19,7 +19,7 @@ $line_color[] = 'danger';
 
                         <div class="panel panel-danger">
                             <div class="panel-heading">
-                                Тип объектов недвижимости "
+                                Тип объектов недвижимости "<?= $type_not_del ?>
                                 ", нельзя удалить!!! Тип используется в следующих объявлениях:
                             </div>
                             <!-- /.panel-heading -->
@@ -65,7 +65,7 @@ $line_color[] = 'danger';
 									?>
                                         </tbody>
                                     </table>
-                                    <a href="http://php-2.loc/less-MVC-1/main_type.php" class="btn btn-info"> Перейти к редактированию типов</a>
+                                    <a href="//php-2.loc/less-class-model-driver-bd/realty.git/index.php?redirect=all_types&controller=controller_realty_type" class="btn btn-info"> Перейти к редактированию типов</a>
                                 </div>
                                 <!-- /.table-responsive -->
                             </div>
