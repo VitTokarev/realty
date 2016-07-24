@@ -219,8 +219,33 @@ class Model
             {
                 $all[] = $one;
             }
-        }
+        }		
+        return $all;
+	}
+	
+	public static function all_by_type($id)
+	{	
+		
+		$sql = "SELECT * FROM `".static::tableName()."` WHERE `type_id` = '{$id}'"; 
+		
+		$res = mysqli_query(self::get_db(), $sql) or die(mysqli_error(self::get_db()));		
+		$all = array();
+		
+		while ($row = mysqli_fetch_assoc($res))
+		{
+			$class_name = static::className();
+            $one = new $class_name();
 
+            /* @var $one Model */
+            if ($one->load($row))
+            {
+                $all[] = $one;
+            }
+			else return NULL;
+			
+			
+        }
+		
         return $all;
 	}
 	
@@ -258,7 +283,7 @@ class Model
         }
     }
 	
-		public function delete($id)
+		public function del($id)
     {
         $query = "DELETE FROM `".static::tableName()."` WHERE `id` = '{$id}'";
         $result = mysqli_query(self::get_db(),$query);        
