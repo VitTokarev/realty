@@ -118,7 +118,7 @@ class ControllerRealty
 			$id = $_GET['id'];	
 			//Realty::delete_line($id);
 			$realty = new Realty();
-			$realty -> delete($id);
+			$realty -> del($id);
 			
 			header("Location: index.php");
 			return;
@@ -155,7 +155,7 @@ class ControllerRealty
 			
 			$realty = new Realty($id);
 			$realty -> type_id = $type_id;
-			$realty -> title = $title;;
+			$realty -> title = $title;
 			$realty -> address = $address;
 			$realty -> price = $price;
 			$realty -> edit();
@@ -168,9 +168,6 @@ class ControllerRealty
 		$id = $_GET['id'];
 		$realty = new Realty($id);
 		$realty_types = RealtyType::realty_types_for_edit($id);
-		echo '<br><br>';
-		echo $realty_types[0]['title'];
-		echo '<br><br>';
 		
 		return render("edite_object_content",['realty' => $realty], $realty_types);
 		
