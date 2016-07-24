@@ -27,7 +27,7 @@ class RealtyType  extends Model
         return $result;
     }	
 
-	public static function realty_types_for_edit($id)
+	public static function realty_types_for_edit($id) //для редактирования объекта недвижимости
 	{
 		$realty_types = RealtyType::all_lines();
 		
@@ -59,6 +59,25 @@ class RealtyType  extends Model
 		print_r($realty_types_sort);
 		return $realty_types_sort;
 	}	
+	
+	public static function all_by_type($id)
+	{	
+		$result = parent::all_by_type($id); 
+		$types = RealtyType::all_lines(); 
+		$types = ArrayHelper::index($types,'id');
+		
+		foreach (array_keys($result) as $k)
+        {
+            $result[$k]->load_relations(
+                [
+                    'type' => $types[$result[$k]->type_id]
+                    
+                ]
+            );
+        }
+		
+		return $result;
+	}
 	//Выборка всех типов объектов недвижимости
 	
 	// public static function all_types()
