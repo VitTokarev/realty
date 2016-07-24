@@ -42,8 +42,12 @@ class ControllerRealtyType
 		
 		if(ISSET($_POST['add_type']))
 		{	
-			$type = $_POST['type'];
-			RealtyType::add_type($type);
+			$title = $_POST['title'];
+			$realty_type = new RealtyType();
+			$realty_type -> load([
+								'title' => $title
+								]);
+			$result = $realty_type->add();
 			header("Location: index.php?redirect=all_types&controller=controller_realty_type");
 			return;
 		}	
@@ -64,15 +68,18 @@ class ControllerRealtyType
 		
 		if(ISSET($_POST['edite_type']))
 		{	
-			$type_id = $_GET['type_id'];
-			$type = $_POST['type'];
-			RealtyType::edite_type($type_id, $type);
+			$id = $_GET['id'];
+			$title = $_POST['title'];
+			$realty_type = new RealtyType($id);
+			$realty_type -> title = $title;
+			$realty_type -> edit();
 			header("Location: index.php?redirect=all_types&controller=controller_realty_type");
 			return;
 		}	
 		
-		$type_id = $_GET['type_id'];
-		$realty_type = RealtyType::one_type($type_id);
+		$id = $_GET['id'];
+		$realty_type = new RealtyType();
+		$realty_type -> one($id);
 		
 		return render("realty_types_edite_content",['realty_type' => $realty_type]);
 	}
@@ -90,22 +97,33 @@ class ControllerRealtyType
 		
 		if(ISSET($_POST['delete_type']))
 		{	
-			$type_id = $_GET['type_id'];
-			$all_lines_of_type = RealtyType::all_lines_of_type($type_id);	
-			if(ISSET($all_lines_of_type[0]['type_id']))
+			$type_i = $id = $_GET['id'];
+			
+			$realty = Realty::all_by_type($type_i);
+			$types = RealtyType::all_lines();
+			$types = RealtyType::type_id_array($types);
+			
+			if(count($realty))
 			{	
-				require 'teamplates/existing_type_not_delete_content.php';		
-				return;
-			}	
-			RealtyType::delete_type($type_id);
+						
+		
+				return render("existing_type_not_delete_content",['realty' => $realty,
+									   'realty_type' => $types
+																]);
+				
+			}
+			
+			$realty_type = new RealtyType();
+			$realty_type -> delete($id);
 			header("Location: index.php?redirect=all_types&controller=controller_realty_type");
 			return;		
 			
 			
 		}	
 		
-		$type_id = $_GET['type_id'];
-		$realty_type = RealtyType::one_type($type_id);
+		$id = $_GET['id'];
+		$realty_type = new RealtyType();
+		$realty_type -> one($id);
 		
 		return render("realty_type_delete_content",['realty_type' => $realty_type]);
 	}
