@@ -1,6 +1,6 @@
-<?
+<?php
 error_reporting(E_ALL);
-//Выборка всех записей
+//Р’С‹Р±РѕСЂРєР° РІСЃРµС… Р·Р°РїРёСЃРµР№
 
 class Realty extends Model
 {
@@ -22,7 +22,7 @@ class Realty extends Model
     {
         $result = parent::one($id);
 
-        $this->load([],true); // загрузка только связей - уместно выделить это в отдельный метод
+        $this->load([],true); // Р·Р°РіСЂСѓР·РєР° С‚РѕР»СЊРєРѕ СЃРІСЏР·РµР№ - СѓРјРµСЃС‚РЅРѕ РІС‹РґРµР»РёС‚СЊ СЌС‚Рѕ РІ РѕС‚РґРµР»СЊРЅС‹Р№ РјРµС‚РѕРґ
         return $result;
     }
 
@@ -86,7 +86,7 @@ class Realty extends Model
     // public $address;
     // public $price;
 	
-	//Выборка одной записи
+	//Р’С‹Р±РѕСЂРєР° РѕРґРЅРѕР№ Р·Р°РїРёСЃРё
 	
 	// public static function one_line($id)
 	// {
@@ -99,7 +99,7 @@ class Realty extends Model
 		// return $realty;
 	// }
 	
-	//Добавление одной записи
+	//Р”РѕР±Р°РІР»РµРЅРёРµ РѕРґРЅРѕР№ Р·Р°РїРёСЃРё
 	
 	// public static function add_line($type, $title, $address, $price)
 	// {	
@@ -110,7 +110,7 @@ class Realty extends Model
 		// return true;
 	// }
 	
-	//Удаление записи
+	//РЈРґР°Р»РµРЅРёРµ Р·Р°РїРёСЃРё
 	
 	// public static function delete_line($id)
 	// {
@@ -121,7 +121,7 @@ class Realty extends Model
 		// return true;
 	// }
 	
-	//Редактирование записи
+	//Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р·Р°РїРёСЃРё
 	
 	// public static function edite_line($id, $type, $title, $address, $price)
 	// {
