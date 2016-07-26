@@ -1,14 +1,20 @@
-<?
+<?php
 error_reporting(E_ALL);
 
+session_start();
+
+require_once "system/system.class.php";
 require_once "system/model.class.php";
 require_once "system/helper/array.helper.php";
 require_once "model/function_realty.php";
 require_once "model/function_realty_type.php";
+require_once "model/user.model.php";
 require_once "functions.php";
 
 
 spl_autoload_register('class_autoloader');
+
+$system = new System();
 
 if(isset($_GET['controller']))
 {
@@ -69,7 +75,3 @@ if ($result) echo $result;
 // {
     // die ('404');
 // }
-
-
-
-
