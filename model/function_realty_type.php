@@ -27,7 +27,7 @@ class RealtyType  extends Model
         return $result;
     }	
 
-	public static function realty_types_for_edit($id) //для редактирования объекта недвижимости
+	public static function realty_types_for_edit($id) //РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ РѕР±СЉРµРєС‚Р° РЅРµРґРІРёР¶РёРјРѕСЃС‚Рё
 	{
 		$realty_types = RealtyType::all_lines();
 		
@@ -78,7 +78,7 @@ class RealtyType  extends Model
 		
 		return $result;
 	}
-	//Выборка всех типов объектов недвижимости
+	//Р’С‹Р±РѕСЂРєР° РІСЃРµС… С‚РёРїРѕРІ РѕР±СЉРµРєС‚РѕРІ РЅРµРґРІРёР¶РёРјРѕСЃС‚Рё
 	
 	// public static function all_types()
 	// {
@@ -94,7 +94,7 @@ class RealtyType  extends Model
 		// return $realty_types;
 	// }
 	
-	//Выборка одного типа объекта недвижимости
+	//Р’С‹Р±РѕСЂРєР° РѕРґРЅРѕРіРѕ С‚РёРїР° РѕР±СЉРµРєС‚Р° РЅРµРґРІРёР¶РёРјРѕСЃС‚Рё
 	
 	// public static function one_type($type_id)
 	// {
@@ -106,7 +106,7 @@ class RealtyType  extends Model
 		// return $realty_type;
 	// }
 	
-	//Редактирование типа  объекта недвижимости
+	//Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С‚РёРїР°  РѕР±СЉРµРєС‚Р° РЅРµРґРІРёР¶РёРјРѕСЃС‚Рё
 	
 	// public static function edite_type($type_id, $type)
 	// {
@@ -117,7 +117,7 @@ class RealtyType  extends Model
 		// return true;
 	// }
 	
-	//Добавление типа  объекта недвижимости
+	//Р”РѕР±Р°РІР»РµРЅРёРµ С‚РёРїР°  РѕР±СЉРµРєС‚Р° РЅРµРґРІРёР¶РёРјРѕСЃС‚Рё
 	
 	// public static function add_type($type)
 	// {
@@ -128,7 +128,7 @@ class RealtyType  extends Model
 		// return true;
 	// }
 	
-	//Удаление типа объекта недвижимости
+	//РЈРґР°Р»РµРЅРёРµ С‚РёРїР° РѕР±СЉРµРєС‚Р° РЅРµРґРІРёР¶РёРјРѕСЃС‚Рё
 	
 	// public static function delete_type($type_id)
 	// {
@@ -139,7 +139,7 @@ class RealtyType  extends Model
 		// return true;
 	// }
 	
-	//Выборка объектов по определенному типу
+	//Р’С‹Р±РѕСЂРєР° РѕР±СЉРµРєС‚РѕРІ РїРѕ РѕРїСЂРµРґРµР»РµРЅРЅРѕРјСѓ С‚РёРїСѓ
 	
 	// public static function all_lines_of_type($type_id)
 	// {	
@@ -155,7 +155,7 @@ class RealtyType  extends Model
 		// return $all_lines_of_type;
 	// }
 	
-	//Выборка всех типов с подстановкой в первый элемент элемент по которому задается id, для вывода первым значением в селекте при редактировании
+	//Р’С‹Р±РѕСЂРєР° РІСЃРµС… С‚РёРїРѕРІ СЃ РїРѕРґСЃС‚Р°РЅРѕРІРєРѕР№ РІ РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ СЌР»РµРјРµРЅС‚ РїРѕ РєРѕС‚РѕСЂРѕРјСѓ Р·Р°РґР°РµС‚СЃСЏ id, РґР»СЏ РІС‹РІРѕРґР° РїРµСЂРІС‹Рј Р·РЅР°С‡РµРЅРёРµРј РІ СЃРµР»РµРєС‚Рµ РїСЂРё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРё
 	
 	// public static function realty_types_for_edit($id)
 	// {
