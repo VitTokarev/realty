@@ -18,7 +18,7 @@ class ControllerAuth
                 $user = new User();
 
                 if ($user->auth($username,$password)) {
-                    header("Location: /less-authorization/realty.git/index.php");
+                    header("Location: index.php");
                     die();
 
                 }
