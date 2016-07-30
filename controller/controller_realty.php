@@ -14,7 +14,7 @@ class ControllerRealty
     {
         global $system;
 
-        if ($system->user->role != User::ROLE_ADMIN)
+        if ($system->user->role != User::ROLE_USER && $system->user->role != User::ROLE_ADMIN)
         {
             header("Location: index.php?controller=controller_auth&redirect=login");
             die();
