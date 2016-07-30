@@ -16,6 +16,11 @@ spl_autoload_register('class_autoloader');
 
 $system = new System();
 
+if(isset($_POST['exit_session']))
+{
+	session_unset();
+	session_destroy();
+}
 
 if(isset($_GET['controller']))
 {
