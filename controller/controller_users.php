@@ -7,6 +7,19 @@ class ControllerUsers
     {
         e404();
     }
+	
+	function __construct()
+    {
+        global $system;
+
+        if ($system->user->role != User::ROLE_ADMIN)
+        {
+            header("Location: index.php?controller=controller_auth&redirect=login");
+            die();
+        }
+
+        //return parent::__construct();
+    }
 
     function users_add_controller()
     {
