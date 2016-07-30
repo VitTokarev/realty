@@ -5,6 +5,10 @@
             <div class="container-fluid">
                <div class="row">
     <div class="col-lg-12">
+		<br><br>
+		<div class="panel panel-danger">
+			<div class="panel-heading">Просматривать информацию могут только зарегистрированные пользователи!!!</div>
+		</div>
         <h1 class="page-header">Авторизация</h1>
         <form action="" method="post">
             <input type="hidden" name="action" value="login"/>
@@ -16,11 +20,15 @@
                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
                 <input type="password" placeholder="Пароль" class="form-control" name="password">
             </div>
-
-
-            <button class="btn btn-success" type="submit">Войти</button>
+            <button class="btn btn-success" type="submit">Войти</button>			
         </form>
-
+		<br>
+		<div class="panel panel-default">
+			<div class="panel-heading"> Если Вы не зарегистрированы, нажмите на кнопку: </div>				
+			</div>
+			<a class="btn btn-warning" href = "index.php?redirect=users_ordinary_add&controller=controller_users_ordinary">Добавить пользователя</a>
+		</div>
+		
     </div>
     <!-- /.col-lg-12 -->
 
