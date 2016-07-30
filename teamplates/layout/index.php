@@ -1,3 +1,12 @@
+<?if(isset($_SESSION['username']))
+{
+	$username = $_SESSION['username'];
+	$user = new User();
+	$role = $user -> get_user_role($username);
+
+}?>
+
+
 <!-- Выборка всех записей -->
 
 <!DOCTYPE html>
@@ -42,14 +51,30 @@
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
+            <div class="navbar-header navbar-header-my">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">Урок №6 Создание класса модели, драйвер БД.</a>
+                <a class="navbar-brand" href="index.php">Урок №7 Авторизация и разделение прав
+доступа.</a>
+				<ul class = "block-right-my">
+					<li class = "navbar-brand navbar-brand-my">
+						<span>
+							<?if(isset($_SESSION['username'])) 
+							{
+								echo 'Ваш логин: '.$_SESSION['username'];?>
+						</span>
+					</li>
+					<li class = "navbar-brand navbar-brand-my">
+						<form method = "post">
+							<?echo '<input class="btn btn-success btn-my" type = "submit" name = "exit_session" value = "ВЫЙТИ">';?>
+						</form>
+						<?}?>
+					</li>
+				</ul>
             </div>
             <!-- /.navbar-header -->
 
@@ -65,13 +90,13 @@
                         <li>
                             <a href="index.php?redirect=add_line"> Добавление объекта недвижимости</a>
                         </li>
-                        <li>
-                            <a href="index.php?redirect=all_types&controller=controller_realty_type">Редактирование типов объектов недвижимости</a>
-                        </li>
-                        <li>
-							<a href="index.php?redirect=users_list&controller=controller_users">Пользователи</a>
-						</li>
-
+						<?if(isset($role))
+						{
+							if($role == 10)
+							{
+							    include("teamplates/layout/navbar-admin.php");
+							}
+						}?>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
