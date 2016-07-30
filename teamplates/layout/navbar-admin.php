@@ -4,5 +4,5 @@
                         </li>
                         <li>
 							<a href="index.php?redirect=users_list&controller=controller_users">Пользователи</a>
-						</li>';
+						</li>;
 						
