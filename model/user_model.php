@@ -140,4 +140,26 @@ class User extends Model
             $this->load($row);
         }
     }
+	
+	public function get_user_role($username)
+    {
+        $query = "SELECT * FROM `".static::tableName()."` WHERE `username` = '{$username}' LIMIT 1";
+        $result = mysqli_query(self::get_db(),$query);
+
+        if ($row = mysqli_fetch_assoc($result))
+        {
+            $role = $row['role'];
+			return $role;
+        }
+    }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
