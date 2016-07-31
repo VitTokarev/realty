@@ -19,6 +19,14 @@ class ControllerRealty
             header("Location: index.php?controller=controller_auth&redirect=login");
             die();
         }
+		
+		if(isset($_POST['exit_session']))
+		{
+			session_unset();
+			session_destroy();
+			header("Location: index.php");
+		}
+
 
         //return parent::__construct();
     }
