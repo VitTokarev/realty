@@ -40,7 +40,7 @@
                                 <tr>
                                     <td><?= $user->id ?></td>
                                     <td><?= $user->username ?></td>
-                                    <td><?= User::$roles[$user->role] ?></td>
+                                    <td><?= ModelUser::$roles[$user->role] ?></td>
                                     <td>                                        
                                         <a class="btn btn-success" href="index.php?redirect=users_edit&controller=controller_users&id=<?= $user->id ?>"><i class="fa fa-pencil"></i></a>
                                         <a class="btn btn-danger" href="index.php?redirect=users_del&controller=controller_users&id=<?= $user->id ?>"><i class="fa fa-times-circle"></i></a>

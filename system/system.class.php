@@ -10,7 +10,7 @@ Class System
         {
             if (self::$user === NULL)
             {
-                self::$user = new User();
+                self::$user = new ModelUser();
                 self::$user->auth_flow();
 
             }

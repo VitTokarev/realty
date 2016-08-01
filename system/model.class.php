@@ -142,7 +142,7 @@ class Model
     {
         if (self::$db === NULL)
         {
-            include("model/db.php");
+            include("model/db_model.php");
             self::$db = $link;
         }
         return self::$db;

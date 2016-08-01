@@ -13,11 +13,18 @@ class ControllerRealtyType
     {
         global $system;
 
-        if ($system->user->role != User::ROLE_ADMIN)
+        if ($system->user->role != ModelUser::ROLE_ADMIN)
         {
             header("Location: index.php?controller=controller_auth&redirect=login");
             die();
         }
+		
+		if(isset($_POST['exit_session']))
+		{
+			session_unset();
+			session_destroy();
+			header("Location: index.php");
+		}
 
         //return parent::__construct();
     }

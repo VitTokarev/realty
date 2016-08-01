@@ -6,8 +6,8 @@ session_start();
 require_once "system/system.class.php";
 require_once "system/model.class.php";
 require_once "system/helper/array.helper.php";
-require_once "model/function_realty.php";
-require_once "model/function_realty_type.php";
+require_once "model/realty_model.php";
+require_once "model/realty_type_model.php";
 require_once "model/user_model.php";
 require_once "functions.php";
 

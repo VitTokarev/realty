@@ -12,11 +12,19 @@ class ControllerUsers
     {
         global $system;
 
-        if ($system->user->role != User::ROLE_ADMIN)
+        if ($system->user->role != ModelUser::ROLE_ADMIN)
         {
             header("Location: index.php?controller=controller_auth&redirect=login");
             die();
         }
+		
+		if(isset($_POST['exit_session']))
+		{
+			session_unset();
+			session_destroy();
+			header("Location: index.php");
+		}
+
 
         //return parent::__construct();
     }
@@ -30,7 +38,7 @@ class ControllerUsers
                 $password = $_POST['password'];
                 $role = $_POST['role'];
 
-                $user = new User();
+                $user = new ModelUser();
                 $user->username = $username;
                 $user->role = $role;
                 $user->create_password($password);
@@ -58,7 +66,7 @@ class ControllerUsers
 
     function users_list_controller()
     {
-        $users = User::all_lines();
+        $users = ModelUser::all_lines();
 
         return render('users/user_list', [
             'users' => $users
@@ -69,7 +77,7 @@ class ControllerUsers
     {
         
 				$id = $_GET['id'];
-                $user = new User();
+                $user = new ModelUser();
                 
 
                 
@@ -97,7 +105,7 @@ class ControllerUsers
     {
 		$id = $_GET['id'];
 		
-		$user_edit = new User();
+		$user_edit = new ModelUser();
 		$user_edit -> one($id); 
 
         if (count($_POST)) {

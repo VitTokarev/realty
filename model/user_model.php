@@ -1,7 +1,7 @@
 <?php
 
 
-class User extends Model
+class ModelUser extends Model
 {
     const ROLE_USER = 1;
     const ROLE_ADMIN = 10;
@@ -18,7 +18,7 @@ class User extends Model
 
     public static function className()
     {
-        return 'User';
+        return 'ModelUser';
     }
 
     public static function tableName()

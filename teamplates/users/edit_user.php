@@ -17,11 +17,11 @@
                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
                 <input type="password" placeholder="Пароль" class="form-control" name="password">
             </div>
-			<label>Роль пользователя: "<?=User::$roles[$user_edit->role]?>"</label>
+			<label>Роль пользователя: "<?=ModelUser::$roles[$user_edit->role]?>"</label>
 			<div class="form-group input-group my-input-group">
                 <select class="form-control" name="role">
                     <?php
-                        foreach(User::$roles as $key => $role)
+                        foreach(ModelUser::$roles as $key => $role)
                         {
                             ?>
                             <option value="<?= $key ?>"><?= $role ?></option>

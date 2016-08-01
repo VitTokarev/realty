@@ -17,7 +17,7 @@ class ControllerUsersOrdinary
                 $password = $_POST['password'];
                 $role = 1;
 
-                $user = new User();
+                $user = new ModelUser();
                 $user->username = $username;
                 $user->role = $role;
                 $user->create_password($password);

@@ -1,7 +1,7 @@
 <?if(isset($_SESSION['username']))
 {
 	$username = $_SESSION['username'];
-	$user = new User();
+	$user = new ModelUser();
 	$role = $user -> get_user_role($username);
 
 }?>
