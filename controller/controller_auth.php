@@ -1,6 +1,6 @@
 <?php
 
-class ControllerAuth
+class ControllerAuth extends Controller
 {
     function __call($name, $params)
     {
@@ -31,7 +31,7 @@ class ControllerAuth
             }
         }
 
-        return render('auth/login', [
+        return $this->render('auth/login', [
 
         ]);
 
