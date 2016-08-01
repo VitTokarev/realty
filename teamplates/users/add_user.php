@@ -20,7 +20,7 @@
             <div class="form-group input-group">
                 <select class="form-control" name="role">
                     <?php
-                        foreach(User::$roles as $key => $role)
+                        foreach(ModelUser::$roles as $key => $role)
                         {
                             ?>
                             <option value="<?= $key ?>"><?= $role ?></option>
