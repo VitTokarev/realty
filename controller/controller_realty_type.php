@@ -119,7 +119,7 @@ class ControllerRealtyType
 		{	
 			$id = $_GET['id'];
 			
-			$realty = Realty::all_by_type($id);
+			$realty = ModelRealty::all_by_type($id);
 			$types = RealtyType::all_lines();
 			$types = RealtyType::type_id_array($types);
 			

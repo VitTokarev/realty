@@ -2,13 +2,13 @@
 error_reporting(E_ALL);
 //Выборка всех записей
 
-class Realty extends Model
+class ModelRealty extends Model
 {
 	
 	
 	public static function className()
     {
-        return 'Realty';
+        return 'ModelRealty';
     }
 
     public static function tableName()

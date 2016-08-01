@@ -31,7 +31,7 @@ class RealtyType  extends Model
 	{
 		$realty_types = RealtyType::all_lines();
 		
-		$realty = new Realty();
+		$realty = new ModelRealty();
 		$realty -> one($id);
 		$first_id = $realty->type_id;
 		$realty_types_sort = array();
