@@ -2,12 +2,12 @@
 error_reporting(E_ALL);
 
 
-class RealtyType  extends Model
+class ModelRealtyType  extends Model
 
 {
 	 public static function className()
     {
-        return 'RealtyType';
+        return 'ModelRealtyType';
     }
 
     public static function tableName()
@@ -29,7 +29,7 @@ class RealtyType  extends Model
 
 	public static function realty_types_for_edit($id) //для редактирования объекта недвижимости
 	{
-		$realty_types = RealtyType::all_lines();
+		$realty_types = ModelRealtyType::all_lines();
 		
 		$realty = new ModelRealty();
 		$realty -> one($id);
@@ -63,7 +63,7 @@ class RealtyType  extends Model
 	public static function all_by_type($id)
 	{	
 		$result = parent::all_by_type($id); 
-		$types = RealtyType::all_lines(); 
+		$types = ModelRealtyType::all_lines(); 
 		$types = ArrayHelper::index($types,'id');
 		
 		foreach (array_keys($result) as $k)

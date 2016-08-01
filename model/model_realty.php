@@ -30,7 +30,7 @@ class ModelRealty extends Model
 	 public static function all_lines()
 	{	
 		$result = parent::all_lines(); 
-		$types = RealtyType::all_lines(); 
+		$types = ModelRealtyType::all_lines(); 
 		$types = ArrayHelper::index($types,'id');
 		
 		foreach (array_keys($result) as $k)
@@ -49,7 +49,7 @@ class ModelRealty extends Model
 	public static function all_by_type($id)
 	{	
 		$result = parent::all_by_type($id); 
-		$types = RealtyType::all_lines(); 
+		$types = ModelRealtyType::all_lines(); 
 		$types = ArrayHelper::index($types,'id');
 		
 		foreach (array_keys($result) as $k)
@@ -72,7 +72,7 @@ class ModelRealty extends Model
 			if ($with_relations)
 			{
 				if ($this->type_id !== NULL) {
-					$this->relations['type'] = new RealtyType($this->type_id);
+					$this->relations['type'] = new ModelRealtyType($this->type_id);
 				}				
 			}
 			return $result;
