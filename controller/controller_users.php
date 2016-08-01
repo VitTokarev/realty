@@ -1,7 +1,7 @@
 <?php
 
 
-class ControllerUsers
+class ControllerUsers extends Controller
 {
     function __call($name, $params)
     {
@@ -58,7 +58,7 @@ class ControllerUsers
             }
         }
 
-        return render('users/add_user', [
+        return $this->render('users/add_user', [
 
         ]);
 
@@ -68,7 +68,7 @@ class ControllerUsers
     {
         $users = ModelUser::all_lines();
 
-        return render('users/user_list', [
+        return $this->render('users/user_list', [
             'users' => $users
         ]);
     }
@@ -95,7 +95,7 @@ class ControllerUsers
             
         
 
-        return render('users/add_user', [
+        return $this->render('users/add_user', [
 
         ]);
 
@@ -137,7 +137,7 @@ class ControllerUsers
             }
         }
 
-        return render('users/edit_user', [
+        return $this->render('users/edit_user', [
 					'user_edit' => $user_edit
         ]);
 

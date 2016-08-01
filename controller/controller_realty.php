@@ -2,7 +2,7 @@
 
 error_reporting(E_ALL);
 
-class ControllerRealty 
+class ControllerRealty extends Controller
 {
 	function __call($name,$params)
     {
@@ -32,15 +32,15 @@ class ControllerRealty
     }
 //Выборка всех объектов
 	
-	public static function all_lines_controller()
+	public function all_lines_controller()
 	{
 		$realty = ModelRealty::all_lines(); 
 		
-		$types = RealtyType::all_lines();
+		$types = ModelRealtyType::all_lines();
 		
-		$types = RealtyType::type_id_array($types);		
+		$types = ModelRealtyType::type_id_array($types);		
 		
-		return render("index_content",['realty' => $realty,
+		return $this->render("index_content",['realty' => $realty,
 									   'realty_type' => $types
 		]);
 	}
@@ -48,7 +48,7 @@ class ControllerRealty
 	
 	//Выборка одного объекта
 	
-	public static function one_line_controller()
+	public function one_line_controller()
 	{
 	
 		if(ISSET($_POST['edite_object']))
@@ -74,13 +74,13 @@ class ControllerRealty
 		$id = $_GET['id'];
 		$realty = new ModelRealty($id);		
 		
-		return render("one_object_content",['realty' => $realty]);
+		return $this->render("one_object_content",['realty' => $realty]);
 	
 	}
 	
 	// Добавление одного объекта
 	
-	public static function add_line_controller()
+	public function add_line_controller()
 	{
 		if(ISSET($_POST['esc_submit']))
 		{	
@@ -97,7 +97,7 @@ class ControllerRealty
 				
 			//Realty::add_line($type, $title, $address, $price);
 			
-			$realty = new Realty();
+			$realty = new ModelRealty();
                 $realty->load([
                     'type_id' => $type_id,
 					'title' => $title,
@@ -116,16 +116,16 @@ class ControllerRealty
 		}	
 		
 		
-		$realty_types = RealtyType::all_lines();
+		$realty_types = ModelRealtyType::all_lines();
 		
 		
-		return render("add_content",['realty_types' => $realty_types]);
+		return $this->render("add_content",['realty_types' => $realty_types]);
 	
 	}
 	
 	//Удаление одного объекта
 	
-	public static function delete_line_controller()
+	public function delete_line_controller()
 	{
 		if(ISSET($_POST['esc_submit']))
 		{	
@@ -151,12 +151,12 @@ class ControllerRealty
 		
 		//return render("one_object_content",['realty' => $realty]);
 		
-		return render("delete_content",['realty' => $realty]);
+		return $this->render("delete_content",['realty' => $realty]);
 	}
 	
 	//Редактирование объекта
 	
-	public static function edit_line_controller()
+	public function edit_line_controller()
 	{
 	
 		if(ISSET($_POST['esc_submit']))
@@ -188,9 +188,9 @@ class ControllerRealty
 		
 		$id = $_GET['id'];
 		$realty = new ModelRealty($id);
-		$realty_types = RealtyType::realty_types_for_edit($id);
+		$realty_types = ModelRealtyType::realty_types_for_edit($id);
 		
-		return render("edite_object_content",['realty' => $realty], $realty_types);
+		return $this->render("edite_object_content",['realty' => $realty], $realty_types);
 		
 	}
 

@@ -1,7 +1,7 @@
 <?php
 
 
-class ControllerUsersOrdinary 
+class ControllerUsersOrdinary extends Controller
 {
     function __call($name, $params)
     {
@@ -39,7 +39,7 @@ class ControllerUsersOrdinary
             }
         }
 
-        return render('users/add_user_ordinary', [
+        return $this->render('users/add_user_ordinary', [
 
         ]);
 

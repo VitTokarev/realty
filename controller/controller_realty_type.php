@@ -2,7 +2,7 @@
 
 error_reporting(E_ALL);
 
-class ControllerRealtyType 
+class ControllerRealtyType extends Controller 
 {
 	function __call($name,$params)
     {
@@ -31,7 +31,7 @@ class ControllerRealtyType
 
 //Выборка всех типов
 
-	public static function all_types_controller()
+	public function all_types_controller()
 	{
 		if(ISSET($_POST['esc_submit']))
 		{	
@@ -45,14 +45,14 @@ class ControllerRealtyType
 			return;
 		}	
 		
-		$realty_types = RealtyType::all_lines();
+		$realty_types = ModelRealtyType::all_lines();
 	
-		return render("main_type_content",['realty_types' => $realty_types]);
+		return $this->render("main_type_content",['realty_types' => $realty_types]);
 	}
 	
 	//Добавление типа
 	
-	public static function add_type_controller()
+	public function add_type_controller()
 	{
 		if(ISSET($_POST['esc_submit']))
 		{	
@@ -63,7 +63,7 @@ class ControllerRealtyType
 		if(ISSET($_POST['add_type']))
 		{	
 			$title = $_POST['title'];
-			$realty_type = new RealtyType();
+			$realty_type = new ModelRealtyType();
 			$realty_type -> load([
 								'title' => $title
 								]);
@@ -72,13 +72,13 @@ class ControllerRealtyType
 			return;
 		}	
 		
-		return render("add_type_content");
+		return $this->render("add_type_content");
 	}
 	
 	
 	//Редактирование типа
 	
-	public static function edite_type_controller()
+	public function edite_type_controller()
 	{
 		if(ISSET($_POST['esc_submit']))
 		{	
@@ -90,7 +90,7 @@ class ControllerRealtyType
 		{	
 			$id = $_GET['id'];
 			$title = $_POST['title'];
-			$realty_type = new RealtyType($id);
+			$realty_type = new ModelRealtyType($id);
 			$realty_type -> title = $title;
 			$realty_type -> edit();
 			header("Location: index.php?redirect=all_types&controller=controller_realty_type");
@@ -98,15 +98,15 @@ class ControllerRealtyType
 		}	
 		
 		$id = $_GET['id'];
-		$realty_type = new RealtyType();
+		$realty_type = new ModelRealtyType();
 		$realty_type -> one($id);
 		
-		return render("realty_types_edite_content",['realty_type' => $realty_type]);
+		return $this->render("realty_types_edite_content",['realty_type' => $realty_type]);
 	}
 	
 	//Удаление типа
 	
-	public static function delete_type_controller()
+	public function delete_type_controller()
 	{
 	
 		if(ISSET($_POST['esc_submit']))
@@ -120,30 +120,30 @@ class ControllerRealtyType
 			$id = $_GET['id'];
 			
 			$realty = ModelRealty::all_by_type($id);
-			$types = RealtyType::all_lines();
-			$types = RealtyType::type_id_array($types);
+			$types = ModelRealtyType::all_lines();
+			$types = ModelRealtyType::type_id_array($types);
 			
 			if($realty != NULL)
 			{	
 				$type_not_del = $types[$id]->title;
-				return render("existing_type_not_delete_content",['realty' => $realty,
+				return $this->render("existing_type_not_delete_content",['realty' => $realty,
 									   'realty_type' => $types,
 										'type_not_del' => $type_not_del]);
 				
 			}
 			
 			
-			$realty_type = new RealtyType();
+			$realty_type = new ModelRealtyType();
 			$realty_type -> del($id);
 			header("Location: index.php?redirect=all_types&controller=controller_realty_type");
 			return;
 		}
 		
 		$id = $_GET['id'];
-		$realty_type = new RealtyType();
+		$realty_type = new ModelRealtyType();
 		$realty_type -> one($id);
 		
-		return render("realty_type_delete_content",['realty_type' => $realty_type]);
+		return $this->render("realty_type_delete_content",['realty_type' => $realty_type]);
 		}
 
 	}
