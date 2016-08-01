@@ -6,10 +6,11 @@ session_start();
 require_once "system/system.class.php";
 require_once "system/model.class.php";
 require_once "system/helper/array.helper.php";
-require_once "model/realty_model.php";
-require_once "model/realty_type_model.php";
-require_once "model/user_model.php";
+//require_once "model/model_realty.php";
+//require_once "model/model_realty_type.php";
+//require_once "model/model_user.php";
 require_once "functions.php";
+require_once "system/controller.class.php";
 
 
 spl_autoload_register('class_autoloader');
