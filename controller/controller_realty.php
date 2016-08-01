@@ -34,7 +34,7 @@ class ControllerRealty
 	
 	public static function all_lines_controller()
 	{
-		$realty = Realty::all_lines(); //function_realty.php
+		$realty = ModelRealty::all_lines(); 
 		
 		$types = RealtyType::all_lines();
 		
@@ -72,7 +72,7 @@ class ControllerRealty
 		}		
 		
 		$id = $_GET['id'];
-		$realty = new Realty($id);		
+		$realty = new ModelRealty($id);		
 		
 		return render("one_object_content",['realty' => $realty]);
 	
@@ -138,7 +138,7 @@ class ControllerRealty
 			
 			$id = $_GET['id'];	
 			//Realty::delete_line($id);
-			$realty = new Realty();
+			$realty = new ModelRealty();
 			$realty -> del($id);
 			
 			header("Location: index.php");
@@ -147,7 +147,7 @@ class ControllerRealty
 		
 		$id = $_GET['id'];
 		//$realty = Realty::one_line($id);
-		$realty = new Realty($id);
+		$realty = new ModelRealty($id);
 		
 		//return render("one_object_content",['realty' => $realty]);
 		
@@ -174,7 +174,7 @@ class ControllerRealty
 			$price = $_POST['price'];
 			
 			
-			$realty = new Realty($id);
+			$realty = new ModelRealty($id);
 			$realty -> type_id = $type_id;
 			$realty -> title = $title;
 			$realty -> address = $address;
@@ -187,7 +187,7 @@ class ControllerRealty
 		}	
 		
 		$id = $_GET['id'];
-		$realty = new Realty($id);
+		$realty = new ModelRealty($id);
 		$realty_types = RealtyType::realty_types_for_edit($id);
 		
 		return render("edite_object_content",['realty' => $realty], $realty_types);
