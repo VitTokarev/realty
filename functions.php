@@ -48,21 +48,21 @@ function class_autoloader($classname)
             e404();
         }
     }	
-	if (mb_substr($classname, 0, 6,'utf-8') === 'Realty')
+	if (mb_substr($classname, 0, 5,'utf-8') === 'Model')
 	{
-		// $class_string = mb_substr($classname, 0, mb_strlen($classname,'utf-8'),'utf-8');
-        // $name = preg_replace('/([a-z])([A-Z])/', '$1_$2', $class_string);
-        // $file_name = "controller/".mb_strtolower($name,'utf-8').'.php';
+		 $class_string = mb_substr($classname, 0, mb_strlen($classname,'utf-8'),'utf-8');
+        $name = preg_replace('/([a-z])([A-Z])/', '$1_$2', $class_string);
+        $file_name = "model/".mb_strtolower($name,'utf-8').'.php';
 
-        // if (file_exists($file_name))
-        // {
-            // include_once $file_name;
-        // }
-        // else
-        // {
+        if (file_exists($file_name))
+        {
+            include_once $file_name;
+        }
+        else
+        {
 
-            // e404();
-        // }
+            e404();
+        }
 	} 
 }
 
