@@ -1,14 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Dusty
- * Date: 11.07.2016
- * Time: 21:26
- */
 
-/*
- * Базовый класс контроллера.
- */
 Class Controller
 {
     protected $layout = 'index.php';
@@ -19,7 +10,26 @@ Class Controller
         e404();
     }
 
-   
+    function __construct()
+    {
+        global $system;
+
+        if ($system->user->role != ModelUser::ROLE_USER && $system->user->role != ModelUser::ROLE_ADMIN)
+        {
+            header("Location: index.php?controller=controller_auth&redirect=login");
+            die();
+        }
+		
+		if(isset($_POST['exit_session']))
+		{
+			session_unset();
+			session_destroy();
+			header("Location: index.php");
+		}
+
+
+        //return parent::__construct();
+    }
     
     public function render($view_name, $data = [], $realty_types =[], $with_layout = true)
 	{

@@ -10,26 +10,7 @@ class ControllerRealty extends Controller
     }
 
 	
-	function __construct()
-    {
-        global $system;
-
-        if ($system->user->role != ModelUser::ROLE_USER && $system->user->role != ModelUser::ROLE_ADMIN)
-        {
-            header("Location: index.php?controller=controller_auth&redirect=login");
-            die();
-        }
-		
-		if(isset($_POST['exit_session']))
-		{
-			session_unset();
-			session_destroy();
-			header("Location: index.php");
-		}
-
-
-        //return parent::__construct();
-    }
+	
 //Выборка всех объектов
 	
 	public function all_lines_controller()
